@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<h1>List Of Employees</h1>
+<a href="/show/add">Add employee</a>
+<table>
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Image</th>
+        <th></th>
+    </tr>
+    <% employees.forEach((employee, index) => { %>
+    <tr>
+        <% let src = 'images/' + employee.image %>
+        <td><%= index+1 %></td>
+        <td><%= employee.id %></td>
+        <td><%= employee.name %></td>
+        <td><%= employee.phoneNumber %></td>
+        <td><%= employee.address %></td>
+        <td><img src="<%=src%>" alt=""></td>
+        <td>
+            <a href="/show/<%= employee.id %>/delete">Delete</a>
+            <a href="/show/<%= employee.id %>/update">Update</a>
+        </td>
+    </tr>
+    <% }) %>
+</table>
+</body>
+</html>
